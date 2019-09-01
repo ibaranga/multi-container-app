@@ -13,22 +13,70 @@
       "image": "ibaranga/multi-server",
       "hostname": "api",
       "essential": false,
-      "memory": 128
+      "memory": 128,
+      "secrets": [
+        {
+          "name": "PGUSER",
+          "valueFrom": "PGUSER"
+        },
+        {
+          "name": "PGPASSWORD",
+          "valueFrom": "PGPASSWORD"
+        },
+        {
+          "name": "PGHOST",
+          "valueFrom": "PGHOST"
+        },
+        {
+          "name": "PGDATABASE",
+          "valueFrom": "PGDATABASE"
+        },
+        {
+          "name": "PGPORT",
+          "valueFrom": "PGPORT"
+        },
+        {
+          "name": "REDIS_HOST",
+          "valueFrom": "REDIS_HOST"
+        },
+        {
+          "name": "REDIS_PORT",
+          "valueFrom": "REDIS_PORT"
+        }
+      ]
     },
     {
       "name": "worker",
       "image": "ibaranga/multi-worker",
       "hostname": "worker",
       "essential": false,
-      "memory": 128
+      "memory": 128,
+      "secrets": [
+        {
+          "name": "REDIS_HOST",
+          "valueFrom": "REDIS_HOST"
+        },
+        {
+          "name": "REDIS_PORT",
+          "valueFrom": "REDIS_PORT"
+        }
+      ]
     },
     {
       "name": "nginx",
       "image": "ibaranga/multi-nginx",
       "hostname": "nginx",
       "essential": true,
-      "portMappings": [{"hostPort": 80, "containerPort": 80}],
-      "links": ["server", "client"],
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        "server",
+        "client"
+      ],
       "memory": 128
     }
   ]
