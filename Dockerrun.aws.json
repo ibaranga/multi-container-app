@@ -1,0 +1,29 @@
+{
+  "AWSEBDockerrunVerion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "ibaranga/multi-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "ibaranga/multi-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "ibaranga/multi-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "ibaranga/multi-nginx",
+      "hostname": "nginx",
+      "essential": true
+    }
+  ]
+}
