@@ -1,5 +1,6 @@
 {
   "AWSEBDockerrunVersion": 2,
+  "executionRoleArn": "arn:aws:iam::448425806848:role/aws-elasticbeanstalk-service-role",
   "containerDefinitions": [
     {
       "name": "client",
